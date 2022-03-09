@@ -104,7 +104,7 @@ export function AccountBox(props) {
     setExpanded(true);
     setTimeout(() => {
       setExpanded(false);
-    }, 3000);
+    }, expandingTransition.duration * 1000 - 1500);
   };
 
   const switchToSignup = () => {
@@ -130,6 +130,7 @@ export function AccountBox(props) {
           initial={false}
           animate={isExpanded ? "expanded" : "collapsed"}
           variants={backdropVariants}
+          transition={expandingTransition}
         />
         <HeaderContainer>
           <HeaderText>
