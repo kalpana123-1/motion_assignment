@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 export const BoxContainer = styled.div`
   width: 100%;
   display: flex;
@@ -14,7 +16,7 @@ export const FormContainer = styled.form`
 `;
 
 export const MutedLink = styled.a`
-  font-size: 12px;
+  font-size: 11px;
   color: rgba(200, 200, 200, 0.8);
   font-weight: 500;
   text-decoration: none;
@@ -51,6 +53,7 @@ export const Input = styled.input`
 
 export const SubmitButton = styled.button`
   width: 100%;
+  margin-top: 5%;
   padding: 11px 40%;
   color: #fff;
   font-size: 15px;
