@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { AccountContext } from "./accountContext";
 import { LoginForm } from "./loginForm";
+import { SignupForm } from "./signupForm";
 
 const BoxContainer = styled.div`
   width: 280px;
@@ -124,25 +126,38 @@ export function AccountBox(props) {
   const contextValue = { switchToSignup, switchToSignin };
 
   return (
-    <BoxContainer>
-      <TopContainer>
-        <BackDrop
-          initial={false}
-          animate={isExpanded ? "expanded" : "collapsed"}
-          variants={backdropVariants}
-          transition={expandingTransition}
-        />
-        <HeaderContainer>
-          <HeaderText>
-            Welcome to Motion Education
-            <SmallText>Please sign-in to continue!</SmallText>
-          </HeaderText>
-        </HeaderContainer>
-        <InnerContainer>
-          <LoginForm />
-          <p onClick={playExpandingAnimation}>Clickme</p>
-        </InnerContainer>
-      </TopContainer>
-    </BoxContainer>
+    <AccountContext.Provider vaalue={contextValue}>
+      <BoxContainer>
+        <TopContainer>
+          <BackDrop
+            initial={false}
+            animate={isExpanded ? "expanded" : "collapsed"}
+            variants={backdropVariants}
+            transition={expandingTransition}
+          />
+          {active === "signin" && (
+            <HeaderContainer>
+              <HeaderText>
+                Welcome to Motion Education
+                <SmallText>Please sign-in to continue!</SmallText>
+              </HeaderText>
+            </HeaderContainer>
+          )}
+          {active === "signup" && (
+            <HeaderContainer>
+              <HeaderText>
+                Create Account
+                <SmallText>Please sign-up to continue!</SmallText>
+              </HeaderText>
+            </HeaderContainer>
+          )}
+          <InnerContainer>
+            {active === "signin" && <LoginForm />}
+            {active !== "signin" && <SignupForm />}
+            <p onClick={playExpandingAnimation}>Clickme</p>
+          </InnerContainer>
+        </TopContainer>
+      </BoxContainer>
+    </AccountContext.Provider>
   );
 }
