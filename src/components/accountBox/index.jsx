@@ -51,19 +51,35 @@ const HeaderText = styled.h2`
   font-size: 30px;
   font-weight: 600;
   line-height: 1.24;
-  color: #fff;
+
   z-index: 10;
-  margin: 0;
+  padding-top: 30;
+  padding: 2.5%;
+  margin-top: 20%;
+  text-align: center;
+  color: white;
+`;
+
+const SmallText = styled.h5`
+  color: white;
+  font-weight: 500;
+  font-size: 11px;
+  z-index: 10;
+  margin-top: 10%;
+  padding-left: 5%;
 `;
 
 export function AccountBox(props) {
   return (
     <BoxContainer>
+      <HeaderContainer>
+        <HeaderText>
+          Welcome to Motion Education
+          <SmallText>Please sign-in to continue!</SmallText>
+        </HeaderText>
+      </HeaderContainer>
       <TopContainer>
         <BackDrop />
-        <HeaderContainer>
-          <HeaderText>Welcome to Motiong Education App </HeaderText>
-        </HeaderContainer>
       </TopContainer>
     </BoxContainer>
   );
