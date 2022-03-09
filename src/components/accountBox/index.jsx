@@ -32,8 +32,8 @@ const BackDrop = styled.div`
 `;
 
 const TopContainer = styled.div`
-  width: 50%;
-  height: 10px;
+  width: 100%;
+  height: 550px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -41,11 +41,29 @@ const TopContainer = styled.div`
   padding-bottom: 5em;
 `;
 
+const HeaderContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const HeaderText = styled.h2`
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.24;
+  color: #fff;
+  z-index: 10;
+  margin: 0;
+`;
+
 export function AccountBox(props) {
   return (
     <BoxContainer>
       <TopContainer>
         <BackDrop />
+        <HeaderContainer>
+          <HeaderText>Welcome to Motiong Education App </HeaderText>
+        </HeaderContainer>
       </TopContainer>
     </BoxContainer>
   );

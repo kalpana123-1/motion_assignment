@@ -14,7 +14,6 @@ const AppContainer = styled.div`
 export default function App() {
   return (
     <AppContainer>
-      <h1>Welcome to Motiong Education App</h1>
       <AccountBox />
     </AppContainer>
   );
