@@ -21,7 +21,7 @@ export function LoginForm(props) {
       <Marginer direction="vertical" margin="1.6em" />
       <SubmitButton type="submit">Signin</SubmitButton>
       <MutedLink href="#">
-        Don't have an account<BoldLink>Signup</BoldLink>?
+        Don't have account<BoldLink>Signup</BoldLink>?
       </MutedLink>
     </BoxContainer>
   );

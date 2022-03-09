@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { LoginForm } from "./loginForm";
 
@@ -75,11 +75,62 @@ const InnerContainer = styled.div`
   padding: 0 1.8em;
 `;
 
+const backdropVariants = {
+  expanded: {
+    width: "233%",
+    height: "1050px",
+    borderRadius: "20%",
+    transform: "rotate(60deg)"
+  },
+  collapsed: {
+    width: "160%",
+    height: "550px",
+    borderRadius: "50%",
+    transform: "rotate(60deg)"
+  }
+};
+
+const expandingTransition = {
+  type: "spring",
+  duration: 2.3,
+  stiffness: 30
+};
+
 export function AccountBox(props) {
+  const [isExpanded, setExpanded] = useState(false);
+  const [active, setActive] = useState("signin");
+
+  const playExpandingAnimation = () => {
+    setExpanded(true);
+    setTimeout(() => {
+      setExpanded(false);
+    }, 3000);
+  };
+
+  const switchToSignup = () => {
+    playExpandingAnimation();
+    setTimeout(() => {
+      setActive("signup");
+    }, 400);
+  };
+
+  const switchToSignin = () => {
+    playExpandingAnimation();
+    setTimeout(() => {
+      setActive("signin");
+    }, 400);
+  };
+
+  const contextValue = { switchToSignup, switchToSignin };
+
   return (
     <BoxContainer>
       <TopContainer>
-        <BackDrop />
+        <BackDrop
+          initial={false}
+          animate={isExpanded ? "expanded" : "collapsed"}
+          variants={backdropVariants}
+        />
         <HeaderContainer>
           <HeaderText>
             Welcome to Motion Education
@@ -88,6 +139,7 @@ export function AccountBox(props) {
         </HeaderContainer>
         <InnerContainer>
           <LoginForm />
+          <p onClick={playExpandingAnimation}>Clickme</p>
         </InnerContainer>
       </TopContainer>
     </BoxContainer>
