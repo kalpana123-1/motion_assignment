@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 import { LoginForm } from "./loginForm";
@@ -14,7 +15,7 @@ const BoxContainer = styled.div`
   overflow: hidden;
 `;
 
-const BackDrop = styled.div`
+const BackDrop = styled(motion.div)`
   width: 160%;
   height: 550px;
   position: absolute;
@@ -54,9 +55,6 @@ const HeaderText = styled.h2`
   line-height: 1.24;
 
   z-index: 10;
-  padding-top: 30;
-  padding: 2.5%;
-  margin-top: 20%;
   text-align: center;
   color: white;
 `;
@@ -80,17 +78,17 @@ const InnerContainer = styled.div`
 export function AccountBox(props) {
   return (
     <BoxContainer>
-      <HeaderContainer>
-        <HeaderText>
-          Welcome to Motion Education
-          <SmallText>Please sign-in to continue!</SmallText>
-        </HeaderText>
-      </HeaderContainer>
-      <InnerContainer>
-        <LoginForm />
-      </InnerContainer>
       <TopContainer>
         <BackDrop />
+        <HeaderContainer>
+          <HeaderText>
+            Welcome to Motion Education
+            <SmallText>Please sign-in to continue!</SmallText>
+          </HeaderText>
+        </HeaderContainer>
+        <InnerContainer>
+          <LoginForm />
+        </InnerContainer>
       </TopContainer>
     </BoxContainer>
   );

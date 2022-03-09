@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  BoldLink,
   BoxContainer,
   FormContainer,
   Input,
@@ -15,9 +16,13 @@ export function LoginForm(props) {
         <Input type="email" placeholder="Email" />
         <Input type="password" placeholder="Password" />
       </FormContainer>
-      <Marginer direction="vertical" margin="1.6em" />
+      <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>
+      <Marginer direction="vertical" margin="1.6em" />
       <SubmitButton type="submit">Signin</SubmitButton>
+      <MutedLink href="#">
+        Don't have an account<BoldLink>Signup</BoldLink>?
+      </MutedLink>
     </BoxContainer>
   );
 }
